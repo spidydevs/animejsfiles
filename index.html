@@ -10,63 +10,124 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        background: #1a1a1a;
+        background: #0B0B0F;
         color: white;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        overflow: hidden;
       }
+
       .container {
         position: relative;
-        width: 600px;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .section {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .staggering-grid {
+        display: flex;
+        flex-wrap: wrap;
+        width: 400px;
         height: 400px;
       }
-      .dot {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: #FFF;
-        border-radius: 50%;
-      }
-      .square {
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        background: #FF1461;
-      }
-      .circle {
-        position: absolute;
+
+      .grid-item {
         width: 28px;
         height: 28px;
-        border: 2px solid #18FF92;
+        margin: 1px;
+        background: rgba(255,255,255,0.1);
+      }
+
+      .el {
+        width: 28px;
+        height: 28px;
+        background: #FFF;
+        border-radius: 50%;
+        margin: 1px;
+      }
+
+      .shapes {
+        position: relative;
+        width: 400px;
+        height: 400px;
+      }
+
+      .shape {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .square {
+        width: 50px;
+        height: 50px;
+        background: #FF1461;
+      }
+
+      .circle {
+        width: 50px;
+        height: 50px;
+        border: 3px solid #18FF92;
         border-radius: 50%;
       }
+
       .triangle {
-        position: absolute;
         width: 0;
         height: 0;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
-        border-bottom: 26px solid #FF7C00;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 50px solid #FF7C00;
       }
-      .path {
+
+      .infinity-path {
         fill: none;
         stroke: #FFF;
         stroke-width: 2;
+      }
+
+      .letters {
+        font-size: 60px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .letter {
+        display: inline-block;
+        opacity: 0;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="dots"></div>
-      <div class="shapes">
-        <div class="square"></div>
-        <div class="circle"></div>
-        <div class="triangle"></div>
-      </div>
-      <svg width="600" height="400">
-        <path class="path" d="M 50 200 C 150 100, 450 100, 550 200 C 450 300, 150 300, 50 200"></path>
-      </svg>
+      <section class="section">
+        <div class="staggering-grid"></div>
+      </section>
+      
+      <section class="section">
+        <div class="shapes">
+          <div class="shape square"></div>
+          <div class="shape circle"></div>
+          <div class="shape triangle"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <svg width="400" height="400">
+          <path class="infinity-path" d="M 50 200 C 150 100, 250 100, 350 200 C 250 300, 150 300, 50 200"></path>
+        </svg>
+      </section>
+
+      <section class="section">
+        <div class="letters">ANIME.JS</div>
+      </section>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
